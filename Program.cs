@@ -1,15 +1,18 @@
 ﻿Console.WriteLine ("Введите число: ");
-int num1 = int.Parse (Console.ReadLine ())!;
-Console.WriteLine ("Введите число: ");
-int num2 = int.Parse (Console.ReadLine ())!;
-Console.WriteLine ("Введите число: ");
-int num3 = int.Parse (Console.ReadLine ())!;
-int max = num1;
-if (num2>max)
-    max = num2;
-    if (num3>max)
-        max = num3;
-if (num3>max)
-    max = num3;
+int num = int.Parse (Console.ReadLine ())!;
 
-Console.WriteLine ("Max: " + max);
+if (num < 0)
+    num = num*(-1);
+
+int numx = num%2;
+if (numx == 0)
+    Console.WriteLine (num + " Четное число");
+if (numx == 1)
+    Console.WriteLine (num + " Нечетное число");
+
+
+// почему то вариант ниже не сработал, выводилось и что четное и что не четное одновременно
+//if ((num%2)==1);
+   // Console.WriteLine (num + " Нечетное число");
+//if ((num%2)==0);
+    //Console.WriteLine (num + " Четное число");
