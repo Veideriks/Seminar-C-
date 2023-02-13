@@ -1,18 +1,22 @@
 ﻿Console.WriteLine ("Введите число: ");
 int num = int.Parse (Console.ReadLine ())!;
+int x = 1;
+int y = 0;
 
-if (num < 0)
-    num = num*(-1);
+while (x<=num)
+    {
+    y = x%2;
+    if (y == 0)
+    {
+        Console.WriteLine (x);
+    }
+    else
+    {
+        Console.WriteLine (" ");
+    }
+    x = x + 1;
+    }
 
-int numx = num%2;
-if (numx == 0)
-    Console.WriteLine (num + " Четное число");
-if (numx == 1)
-    Console.WriteLine (num + " Нечетное число");
-
-
-// почему то вариант ниже не сработал, выводилось и что четное и что не четное одновременно
-//if ((num%2)==1);
-   // Console.WriteLine (num + " Нечетное число");
-//if ((num%2)==0);
-    //Console.WriteLine (num + " Четное число");
+// Наверно, в прошлой задаче выводились оба значения из-за отсутсвия скобочек. 
+// Хотя если так тогда не понимаю, почему без скобочек сработал вариант с доп переменной и все еще без скобочек.
+// В этой без скобочек вообще ничего не работало)
