@@ -1,27 +1,16 @@
 ﻿Console.Clear();
-Console.WriteLine("Введите число");
+Console.WriteLine("Введите число-день недели");
 int x = int.Parse(Console.ReadLine());
 
-while (x > 100000)
+if ((x<6) && (x>0))
     {
-    x = x/10;
+        Console.WriteLine ("Будний день");
     }
-if (x<100)
+if ((x<8) && (x>5))
     {
-        Console.WriteLine ("Третьей цифры нет");
+        Console.WriteLine ("Выходной день");
     }
-if ((x<1000) && (x>100))
+if ((x>=8) || (x<=0))
     {
-        x = x%10;
-        Console.WriteLine (x);
-    }
-if ((x<10000) && (x>1000))
-    {
-        x = x%100/10;
-        Console.WriteLine (x);
-    }
-if ((x<100000) && (x>10000))
-    {
-        x = x%1000/100;
-        Console.WriteLine (x);
+        Console.WriteLine ("Такого дня не существует");
     }
