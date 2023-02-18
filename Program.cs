@@ -1,7 +1,8 @@
-﻿// Семинар 1 Задача №3 4d4aabaf7717b3f90d127153ddb2442b67f3a2a3
+﻿Console.Clear();
+Console.WriteLine("Введите трехзначное число");
+int a = int.Parse(Console.ReadLine());
 
-// Семинар 1 Задача №2 fb72cb77b83d9ac6a8e7bdbc1e1a492b55731762     
+int res1 = a%100;
+int res2 = res1/10;
 
-// Семинар 1 Задача №1 59cbad1dbb0198f8376eca7d3de9e1af70f4cbb9
-
-// Пустая страница 01c51ab509f3c1560b23d959a656dac3d8905410
+Console.WriteLine (res2);
