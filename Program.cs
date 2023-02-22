@@ -1,17 +1,15 @@
 ﻿Console.Clear();
 
-Console.WriteLine("Введите: x");
-int x = int.Parse(Console.ReadLine());
-int count = 1;
-int countminys = -1;
-int k = 0;
+Console.WriteLine("Введите координаты: a");
+int ax = int.Parse(Console.ReadLine());
+int ay = int.Parse(Console.ReadLine());
+int az = int.Parse(Console.ReadLine());
 
-while (count <= x){
-    k = count*count*count;
-    Console.Write($"{k} ");
-    count = count + 1;}
+Console.WriteLine("Введите координаты: b");
+int bx = int.Parse(Console.ReadLine());
+int by = int.Parse(Console.ReadLine());
+int bz = int.Parse(Console.ReadLine());
 
-while (countminys >= x){
-    k = x*x*x;
-    Console.Write($"{k} ");
-    x = x + 1;}
+double d = Math.Sqrt(Math.Pow(ax - bx, 2) + Math.Pow(ay - by, 2) + Math.Pow(az - bz, 2));
+
+Console.WriteLine($"d={d:f2}");
