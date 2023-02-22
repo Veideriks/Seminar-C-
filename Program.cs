@@ -1,5 +1,17 @@
-﻿// Список по второму семинару
+﻿Console.Clear();
 
-// bfa0e51 Sem 2 #3
-// 6dd7eaa sem 2 #2
-// e343378 Sem2 #1
+Console.WriteLine("Введите: x");
+int x = int.Parse(Console.ReadLine());
+int count = 1;
+int countminys = -1;
+int k = 0;
+
+while (count <= x){
+    k = count*count*count;
+    Console.Write($"{k} ");
+    count = count + 1;}
+
+while (countminys >= x){
+    k = x*x*x;
+    Console.Write($"{k} ");
+    x = x + 1;}
