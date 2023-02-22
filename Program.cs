@@ -1,15 +1,14 @@
 ﻿Console.Clear();
 
-Console.WriteLine("Введите координаты: a");
-int ax = int.Parse(Console.ReadLine());
-int ay = int.Parse(Console.ReadLine());
-int az = int.Parse(Console.ReadLine());
+Console.WriteLine("Введите пятизначное число: ");
+int x = int.Parse(Console.ReadLine());
 
-Console.WriteLine("Введите координаты: b");
-int bx = int.Parse(Console.ReadLine());
-int by = int.Parse(Console.ReadLine());
-int bz = int.Parse(Console.ReadLine());
+int a = x/10000;
+int b = x/1000%10;
+int d = x/10%10;
+int f = x%10;
 
-double d = Math.Sqrt(Math.Pow(ax - bx, 2) + Math.Pow(ay - by, 2) + Math.Pow(az - bz, 2));
-
-Console.WriteLine($"d={d:f2}");
+if (a==f && b==d){
+    Console.WriteLine($"{x} палиндром");}
+else
+    Console.WriteLine($"{x} не палиндром");
