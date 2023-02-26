@@ -1,14 +1,14 @@
 ﻿Console.Clear();
-
-int fun(int [] mas)
+int a = int.Parse(Console.ReadLine());
+int n = int.Parse(Console.ReadLine());
+int y=a;
+int fun (int a)
 {
-    int i = 0;
-    int n = mas.Length;
-    for (i=0; i < n; i++){
-        mas[i] = new Random().Next(0, 101);
-        Console.Write($"{mas[i]} ");}
+    int i = 1;
+    for (i=1; i < n; i++){
+        a=a*y;
+        Console.WriteLine(a);}
     return i;
 }
 
-int [] mas = new int [8];
-fun(mas);
+fun(a);
