@@ -1,14 +1,14 @@
 ﻿Console.Clear();
-int a = int.Parse(Console.ReadLine());
-int n = int.Parse(Console.ReadLine());
-int y=a;
-int fun (int a)
+int x = int.Parse(Console.ReadLine());
+int fun (int x)
 {
-    int i = 1;
-    for (i=1; i < n; i++){
-        a=a*y;
-        Console.WriteLine(a);}
-    return i;
+    int y = 0;
+    int z = 0;
+    while (x!=0){
+    y = x%10;
+    x = x/10;
+    z = z+y;}
+    return z;
 }
 
-fun(a);
+Console.WriteLine(fun(x));
