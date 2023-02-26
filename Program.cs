@@ -1,5 +1,14 @@
-﻿// Задачи третьего семинара:
+﻿Console.Clear();
 
-// 627a9a7 Sem 3 #19
-// 14b242f Sem 3 #21
-// 20def32 Sem 3 #23
+int fun(int [] mas)
+{
+    int i = 0;
+    int n = mas.Length;
+    for (i=0; i < n; i++){
+        mas[i] = new Random().Next(0, 101);
+        Console.Write($"{mas[i]} ");}
+    return i;
+}
+
+int [] mas = new int [8];
+fun(mas);
