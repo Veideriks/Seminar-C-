@@ -1,14 +1,30 @@
 ﻿Console.Clear();
-int x = int.Parse(Console.ReadLine());
-int fun (int x)
+
+int fun(int [] mas)
 {
-    int y = 0;
-    int z = 0;
-    while (x!=0){
-    y = x%10;
-    x = x/10;
-    z = z+y;}
-    return z;
+    int i = 0;
+    int n = mas.Length;
+    for (i=0; i < n; i++){
+        mas[i] = new Random().Next(100, 1000);
+        Console.Write($"{mas[i]} ");}
+    return i;
 }
 
-Console.WriteLine(fun(x));
+int [] mas = new int [5];
+
+int kvest (int [] mas)
+{
+    int i = 0;
+    int x = 0;
+    int n = mas.Length;
+    for (i=0; i < n; i++){
+        if (mas [i] % 2 == 0)
+            x++;
+        }
+        Console.Write($"4etn 4isel {x}");
+    return i;
+}
+
+fun(mas);
+Console.WriteLine();
+kvest(mas);
