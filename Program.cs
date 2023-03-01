@@ -5,12 +5,12 @@ int fun(int [] mas)
     int i = 0;
     int n = mas.Length;
     for (i=0; i < n; i++){
-        mas[i] = new Random().Next(100, 1000);
+        mas[i] = new Random().Next(-10, 11);
         Console.Write($"{mas[i]} ");}
     return i;
 }
 
-int [] mas = new int [5];
+int [] mas = new int [4];
 
 int kvest (int [] mas)
 {
@@ -18,10 +18,10 @@ int kvest (int [] mas)
     int x = 0;
     int n = mas.Length;
     for (i=0; i < n; i++){
-        if (mas [i] % 2 == 0)
-            x++;
+        if (i % 2 == 1)
+            x = mas [i] + x;
         }
-        Console.Write($"4etn 4isel {x}");
+        Console.Write($"Сумма элементов на нечетных позициях: {x}");
     return i;
 }
 
