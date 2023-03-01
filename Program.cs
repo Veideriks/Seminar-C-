@@ -1,27 +1,32 @@
 ﻿Console.Clear();
 
-int fun(int [] mas)
+double fun(double [] mas)
 {
     int i = 0;
     int n = mas.Length;
     for (i=0; i < n; i++){
-        mas[i] = new Random().Next(-10, 11);
+        mas[i] = new Random().NextDouble();
+        mas[i] = Math.Round (mas[i], 3);
         Console.Write($"{mas[i]} ");}
     return i;
 }
 
-int [] mas = new int [4];
+double [] mas = new double [4];
 
-int kvest (int [] mas)
+double kvest (double [] mas)
 {
     int i = 0;
-    int x = 0;
-    int n = mas.Length;
+    double min = mas [i];
+    double max = 0;
+    double sum = 0;
+    double n = mas.Length;
     for (i=0; i < n; i++){
-        if (i % 2 == 1)
-            x = mas [i] + x;
-        }
-        Console.Write($"Сумма элементов на нечетных позициях: {x}");
+        if (mas[i] < min)
+            min = mas [i];
+        if (mas[i] > max)
+            max = mas [i];}
+        sum = min + max;
+        Console.Write($"Сумма min + max: {sum}");
     return i;
 }
 
