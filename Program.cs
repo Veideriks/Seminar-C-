@@ -1,46 +1,59 @@
 ﻿Console.Clear();
 
-int fun(string mes)
+const int coef = 0;
+const int cons = 1;
+const int x = 0;
+const int y = 1;
+const int line1 = 1;
+const int line2 = 2;
+
+double [] linedata1 = input(line1);
+double [] linedata2 = input(line2);
+
+double zapros (string mes) // запрос значений с преобразоанием из строки.
 {
     Console.Write(mes);
     string value = Console.ReadLine();
-    int res = int.Parse(value);
-    return res;
+    double result = Convert.ToDouble(value);
+    return result;
 }
 
-int[] input (int length)
+double [] input (double number) // вводятся данные по прямой
 {
-    int [] mas = new int [length];
-    for (int i = 0; i < mas.Length; i++)
-    {
-        mas[i] = fun($"Vvod element({i + 1}) ");
-    }
-    return mas;
+    double [] linedata = new double [2];
+    linedata [coef] = zapros($"ввод коэфа: {number}");
+    linedata [cons] = zapros($"ввод конса: {number}");
+    return linedata;
 }
 
-void print(int[]mas)
+double [] poisk (double[] linedata1, double[] linedata2)
 {
-    for (int i = 0; i < mas.Length; i++)
-    {
-        Console.WriteLine($"a[{i}] = {mas[i]}");
-    }
+    double [] coord = new double [2];
+    coord [x] = (linedata1[cons] - linedata2[cons])/(linedata2[coef] - linedata1[coef]);
+    coord [y] = linedata1[cons]* coord[x] + linedata1[cons];
+    return coord;
 }
 
-int count(int[]mas)
+bool proverka (double [] linedata1, double [] linedata2)
 {
-    int count = 0;
-    for (int i = 0; i<mas.Length; i++)
+    if (linedata1[coef] == linedata2[coef])
     {
-        if (mas[i]>0)
+        if (linedata1[cons]==linedata2[cons])
         {
-            count++;
+            Console.WriteLine("Прямые совпадают");
+            return false;
+        }
+    else
+        {
+            Console.WriteLine("Прямые паралельны");
+            return false;
         }
     }
-    return count;
+    return true;
 }
 
-int length = fun ("Vvod 4isel ");
-int [] mas;
-mas = input(length);
-print(mas);
-Console.WriteLine($"kol-vo 4isel > 0 ---> {count(mas)}");
+if (proverka(linedata1,linedata2))
+{
+    double [] coord = poisk (linedata1,linedata2);
+    Console.WriteLine($"Точка пересечения имеет координаты: ({coord[x]};{coord[y]})");
+}
