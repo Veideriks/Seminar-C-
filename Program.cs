@@ -5,30 +5,54 @@ Clear();
 
 int rows = 3;
 int columns = 4;
-double[,] array = GetArray(rows, columns);
+WriteLine("Введите число для поиска: ");
+int x = int.Parse(ReadLine());
+int[,] array = GetArray(rows, columns);
 PrintArray(array);
+WriteLine("");
+poisk(array);
 
-double[,] GetArray(int m, int n)
+int[,] GetArray(int m, int n)
 {
-    double[,] result = new double[m, n];
+    int[,] result = new int[m, n];
     for (int i = 0; i < m; i++)
     {
         for (int j = 0; j < n; j++)
         {
-            result[i, j] = Math.Round(new Random().NextDouble(), 2);
+            result[i, j] = new Random().Next(1,100);
         }
     }
     return result;
 }
 
-void PrintArray(double[,] inArray)
+void PrintArray(int[,] inArray)
 {
     for (int i = 0; i < inArray.GetLength(0); i++)
     {
         for (int j = 0; j < inArray.GetLength(1); j++)
         {
-            Console.Write($"{inArray[i, j]} ");
+            Write($"{inArray[i, j]} ");
         }
-        Console.WriteLine();
+        WriteLine();
     }
+}
+
+int [,] poisk (int [,] array)
+{
+    bool result = false;
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            if (array [i, j] == x){
+                WriteLine($"Число {x} - есть");
+                result = true;
+            break;}
+        }
+        if (result == true)
+            break;
+    }
+    if (result == false)
+        WriteLine($"Число {x} - отсутствует");
+    return array;
 }
