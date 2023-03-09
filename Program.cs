@@ -5,12 +5,10 @@ Clear();
 
 int rows = 3;
 int columns = 4;
-WriteLine("Введите число для поиска: ");
-int x = int.Parse(ReadLine());
 int[,] array = GetArray(rows, columns);
 PrintArray(array);
 WriteLine("");
-poisk(array);
+sum(array);
 
 int[,] GetArray(int m, int n)
 {
@@ -19,7 +17,7 @@ int[,] GetArray(int m, int n)
     {
         for (int j = 0; j < n; j++)
         {
-            result[i, j] = new Random().Next(1,100);
+            result[i, j] = new Random().Next(1,10);
         }
     }
     return result;
@@ -37,22 +35,20 @@ void PrintArray(int[,] inArray)
     }
 }
 
-int [,] poisk (int [,] array)
+int [,] sum (int [,] array)
 {
-    bool result = false;
-    for (int i = 0; i < array.GetLength(0); i++)
+    int result = 0;
+    double srednee = 0;
+    for (int i = 0; i < array.GetLength(1); i++)
     {
-        for (int j = 0; j < array.GetLength(1); j++)
+        for (int j = 0; j < array.GetLength(0); j++)
         {
-            if (array [i, j] == x){
-                WriteLine($"Число {x} - есть");
-                result = true;
-            break;}
+            result = result + array [j,i];
         }
-        if (result == true)
-            break;
+        srednee = Convert.ToDouble(result)/Convert.ToDouble(array.GetLength(0));
+        Write($"{srednee} ");
+        result = 0;
+        WriteLine();
     }
-    if (result == false)
-        WriteLine($"Число {x} - отсутствует");
     return array;
 }
