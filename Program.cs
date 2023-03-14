@@ -5,48 +5,62 @@ Clear();
 
 int rows = 2;
 int columns = 2;
-int[,] array = GetArray(rows, columns);
-int[,] array2 = GetArray(rows, columns);
-int[,] array3 = kvest(rows, columns);
+int tretie = 2;
+int[,,] array = GetArray(rows, columns, tretie);
 
 PrintArray(array);
 WriteLine("");
-PrintArray(array2);
-WriteLine("");
-PrintArray(array3);
-WriteLine("");
+proverka(array);
+PrintArray(array);
 
-int[,] GetArray(int m, int n)
+int[,,] GetArray(int m, int n, int k)
 {
-    int[,] result = new int[m, n];
+    int[,,] result = new int[m, n, k];
     for (int i = 0; i < m; i++)
     {
         for (int j = 0; j < n; j++)
         {
-            result[i, j] = new Random().Next(0,5);
+            for (int l = 0; l < k; l++)
+            {
+                result[i, j, l] = new Random().Next(10, 100);
+            }
         }
     }
     return result;
 }
 
-void PrintArray(int[,] inArray)
+void PrintArray(int[,,] inArray)
 {
     for (int i = 0; i < inArray.GetLength(0); i++)
     {
         for (int j = 0; j < inArray.GetLength(1); j++)
         {
-            Write($"{inArray[i, j]} ");
+            for (int l = 0; l < inArray.GetLength(2); l++)
+            {
+                WriteLine($"{inArray[i, j, l]} {(i, j, l)} ");
+            }
         }
-        WriteLine();
     }
 }
-
-int[,] kvest(int m, int n)
+int[,,] proverka(int[,,] array)
 {
-    int[,] result = new int[m, n];
-    result[0, 0] = array[0,0]*array2[0,0]+array[0,1]*array2[1,0];
-    result[0, 1] = array[0,0]*array2[0,1]+array[0,1]*array2[1,1];
-    result[1, 0] = array[1,0]*array2[0,0]+array[1,1]*array2[1,0];
-    result[1, 1] = array[1,0]*array2[0,1]+array[1,1]*array2[1,1];
-    return result;
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            for (int l = 0; l < array.GetLength(2); l++)
+            {
+                if ((i != 0 && j != 0 && l != 0) && (array[i, j, l] == array[0, 0, 0] || array[i, j, l] == array[0, 0, 1] ||
+                    array[i, j, l] == array[0, 1, 1] || array[i, j, l] == array[1, 1, 1] ||
+                    array[i, j, l] == array[1, 1, 0] || array[i, j, l] == array[1, 0, 0]))
+                {
+                    array[i, j, l] = new Random().Next(10, 100);
+                    proverka(array);
+                }
+            else
+                break;
+            }
+        }
+    }
+    return array;
 }
