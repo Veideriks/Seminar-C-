@@ -3,12 +3,18 @@ using static System.Console;
 
 Clear();
 
-int rows = 4;
-int columns = 4;
+int rows = 2;
+int columns = 2;
 int[,] array = GetArray(rows, columns);
+int[,] array2 = GetArray(rows, columns);
+int[,] array3 = kvest(rows, columns);
+
 PrintArray(array);
 WriteLine("");
-kvest(array);
+PrintArray(array2);
+WriteLine("");
+PrintArray(array3);
+WriteLine("");
 
 int[,] GetArray(int m, int n)
 {
@@ -35,29 +41,12 @@ void PrintArray(int[,] inArray)
     }
 }
 
-int [,] kvest (int [,] array)
+int[,] kvest(int m, int n)
 {
-    int n = array.GetLength(0);
-    int m = array.GetLength(1);
-    int sum = 0;
-    int sum2 = 0;
-    int min = 0;
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < m; j++)
-        {
-          sum = array[i,j]+sum;
-        }
-        WriteLine($"{sum}");
-        
-        if (sum<sum2 || sum2==0)
-            {
-                min = i;
-                sum2 = sum;
-            }
-        sum = 0;
-    }
-    WriteLine("");
-    WriteLine($"Наименьшая сумма в строке № {min+1}");
-    return array;
+    int[,] result = new int[m, n];
+    result[0, 0] = array[0,0]*array2[0,0]+array[0,1]*array2[1,0];
+    result[0, 1] = array[0,0]*array2[0,1]+array[0,1]*array2[1,1];
+    result[1, 0] = array[1,0]*array2[0,0]+array[1,1]*array2[1,0];
+    result[1, 1] = array[1,0]*array2[0,1]+array[1,1]*array2[1,1];
+    return result;
 }
