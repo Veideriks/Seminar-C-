@@ -1,6 +1,16 @@
-﻿// 8e3690b Sem 8 #60
-// 3ea0473 Sem 8 #58
-// a82f618 Sem 8 #56
-// fdfef28 Sem 8 #54
+﻿using System;
+using static System.Console;
 
-// 62 не придумал решение. есть идея как с проходом лабиринта, но не придумал как оформить. да и звучит эта идея не лаконично.
+Clear();
+
+int m = int.Parse(ReadLine());
+int n = int.Parse(ReadLine());
+
+WriteLine(kvest (m,n));
+
+int kvest (int m, int n)
+{
+    if (m==n)
+        return m;
+    return m + kvest(m+1, n);
+}
