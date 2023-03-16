@@ -3,14 +3,15 @@ using static System.Console;
 
 Clear();
 
-int m = int.Parse(ReadLine());
 int n = int.Parse(ReadLine());
 
-WriteLine(kvest (m,n));
+WriteLine(kvest (n));
 
-int kvest (int m, int n)
+string kvest (int n)
 {
-    if (m==n)
-        return m;
-    return m + kvest(m+1, n);
+    if (n==1)
+        return "1";
+    string s = n.ToString() + " " + kvest(n-1);
+    WriteLine (s);
+    return s;
 }
